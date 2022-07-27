@@ -1,0 +1,25 @@
+@import '../../design-tokens/scss-variables';
+
+.button-link {
+	font-size: $size-5;
+	font-weight: 400;
+	color: $color-off-white;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	line-height: normal;
+	padding: $spacer-xl $spacer-xxl * 1.5;
+	border: 1px solid $color-green;
+	border-radius: 30px;
+	transition: all 0.3s;
+
+	&:hover {
+		color: $color-medium-black;
+		background-color: $color-green;
+	}
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 6px $color-light-green;
+	}
+}

@@ -1,0 +1,422 @@
+@import '../../design-tokens/scss-variables';
+
+.project-card {
+	height: 380px;
+	box-shadow: 0 3px 6px rgba($color-dark-black, 0.4);
+	border-radius: 15px;
+	position: relative;
+	transition: box-shadow 0.3s;
+
+	&:hover {
+		.project-card-info {
+			.project-description {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	@media (min-width: 320px) {
+		width: 260px;
+	}
+
+	@media (min-width: 992px) {
+		width: 100%;
+		height: unset;
+		display: flex;
+		align-items: center;
+		box-shadow: unset;
+		border-radius: unset;
+
+		&:hover {
+			.project-card-info {
+				.project-description {
+					opacity: unset;
+					visibility: unset;
+				}
+			}
+		}
+	}
+
+	.project-card-info {
+		width: 100%;
+		height: 100%;
+		background-color: rgba($color-dark-black, 0.85);
+		padding: $spacer-xl;
+		box-sizing: border-box;
+		border-radius: 15px;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		@media (min-width: 992px) {
+			width: 35%;
+			height: unset;
+			background-color: unset;
+			display: flex;
+			flex-direction: column;
+			padding: unset;
+			box-sizing: unset;
+			position: unset;
+			border-radius: unset;
+			top: unset;
+			left: unset;
+		}
+
+		@media (min-width: 1200px) {
+			width: 40%;
+		}
+
+		.project-name {
+			max-width: 50%;
+			font-family: 'Roboto Mono', monospace;
+			font-size: $size-8;
+			color: $color-dark-black;
+			font-weight: 500;
+			text-decoration: none;
+			background-color: $color-green;
+			padding: $spacer-xxs;
+			box-sizing: border-box;
+			display: block;
+			position: absolute;
+			top: 48px;
+			left: 16px;
+			transition: box-shadow 0.3s;
+
+			@media (min-width: 992px) {
+				max-width: unset;
+				margin-bottom: $spacer-xxl * 1.5;
+				position: relative;
+				top: unset;
+				left: unset;
+				order: 0;
+				z-index: 1;
+			}
+		}
+
+		.project-tags-list {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			padding: 0 $spacer-xl;
+			box-sizing: border-box;
+			position: absolute;
+			bottom: 80px;
+			left: 0;
+
+			@media (min-width: 992px) {
+				width: unset;
+				justify-content: unset;
+				margin-bottom: $spacer-xxl * 1.5;
+				padding: unset;
+				box-sizing: unset;
+				position: unset;
+				bottom: unset;
+				left: unset;
+				order: 2;
+			}
+
+			.project-tags-item {
+				font-size: calc($size-9 * 1.4);
+				display: flex;
+				justify-content: center;
+				margin: 0 $spacer-xxs;
+				position: relative;
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				&:last-child {
+					margin-right: 0;
+				}
+
+				&:hover {
+					@media (min-width: 992px) {
+						.project-tags-tooltip {
+							visibility: visible;
+							opacity: 1;
+						}
+					}
+				}
+
+				@media (min-width: 992px) {
+					font-family: 'Roboto Mono', monospace;
+					font-size: $size-5;
+					font-weight: 400;
+					background-color: $color-dark-black;
+					padding: $spacer-xs;
+					position: relative;
+					z-index: 1;
+				}
+			}
+
+			.react {
+				color: #61dafb;
+			}
+
+			.scss {
+				color: #cd6799;
+			}
+
+			.html {
+				color: #e34c25;
+			}
+
+			.javascript {
+				color: #f0db4f;
+			}
+
+			.jquery {
+				color: #0769ad;
+			}
+
+			.bootstrap {
+				color: #7953b2;
+			}
+		}
+
+		.project-description {
+			width: 100%;
+			height: 100%;
+			background-color: rgba($color-dark-black, 0.95);
+			padding: $spacer-xl;
+			box-sizing: border-box;
+			border-radius: 15px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.3s;
+
+			@media (min-width: 992px) {
+				width: unset;
+				height: unset;
+				background-color: $color-light-black;
+				justify-content: unset;
+				margin-bottom: $spacer-lg;
+				padding: $spacer-xxl;
+				box-sizing: unset;
+				border: unset;
+				border-radius: 10px;
+				box-shadow: 0 3px 6px rgba($color-dark-black, 0.3);
+				position: unset;
+				top: unset;
+				left: unset;
+				opacity: unset;
+				visibility: unset;
+				transition: unset;
+				order: 1;
+				z-index: 1;
+			}
+
+			&-top,
+			&-bottom {
+				font-size: $size-3;
+				font-weight: 300;
+				letter-spacing: 0.5px;
+				line-height: 1.5;
+				text-align: center;
+				margin-bottom: $spacer-xl;
+
+				@media (min-width: 1200px) {
+					font-size: $size-4;
+				}
+			}
+
+			&-top {
+				margin-top: $spacer-sm;
+			}
+
+			&-bottom {
+				@media (min-width: 992px) {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		.project-links-list {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			padding: 0 $spacer-xl;
+			box-sizing: border-box;
+			position: absolute;
+			bottom: 16px;
+			left: 0;
+			z-index: 1;
+
+			@media (min-width: 992px) {
+				padding: unset;
+				box-sizing: unset;
+				position: unset;
+				order: 3;
+			}
+
+			.project-links-item {
+				@media (min-width: 992px) {
+					margin: 0 $spacer-md;
+
+					&:first-child {
+						margin-left: 0;
+					}
+
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+			}
+
+			.project-links-link {
+				font-size: $size-8;
+				color: $color-off-white;
+				display: flex;
+				transition: color 0.3s;
+				transform: translate3d(0px, 0px, 0px); // Prevents shifting on opacity change when card is hovered
+
+				&:hover {
+					color: $color-green;
+				}
+
+				&:focus {
+					outline: none;
+					color: $color-green;
+				}
+
+				@media (min-width: 1200px) {
+					font-size: $size-9;
+				}
+			}
+		}
+	}
+
+	.project-card-image {
+		height: 100%;
+
+		@media (min-width: 992px) {
+			width: 65%;
+			box-shadow: 0 3px 6px rgba($color-dark-black, 0.4);
+			border-radius: 10px;
+		}
+
+		@media (min-width: 1200px) {
+			width: 60%;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			padding: 2px;
+			box-sizing: border-box;
+			border-radius: 15px;
+			display: block;
+			object-fit: cover;
+		}
+
+		.project-image {
+			background-color: $color-dark-black;
+			border-radius: 10px;
+			display: block;
+			transition: box-shadow 0.3s;
+
+			&:hover {
+				img {
+					opacity: 0.7;
+				}
+			}
+
+			&:focus {
+				outline: none;
+
+				img {
+					opacity: 1;
+				}
+			}
+
+			img {
+				@media (min-width: 992px) {
+					opacity: 0.3;
+					padding: unset;
+					box-sizing: unset;
+					border-radius: 10px;
+					transition: opacity 0.3s;
+				}
+			}
+		}
+	}
+}
+
+.projects-item:nth-child(odd) {
+	@media (min-width: 992px) {
+		.project-card {
+			.project-card-info {
+				align-items: flex-start;
+				order: 0;
+
+				.project-name {
+					margin-right: -250px;
+				}
+
+				.project-tags-list {
+					margin-right: -250px;
+				}
+
+				.project-description {
+					margin-right: -250px;
+
+					&-top,
+					&-bottom {
+						text-align: unset;
+					}
+				}
+
+				.project-links-list {
+					justify-content: flex-start;
+					margin-right: -250px;
+				}
+			}
+
+			.project-card-image {
+				order: 1;
+			}
+		}
+	}
+}
+
+.projects-item:nth-child(even) {
+	@media (min-width: 992px) {
+		.project-card {
+			.project-card-info {
+				align-items: flex-end;
+				order: 1;
+
+				.project-name {
+					margin-left: -250px;
+				}
+
+				.project-tags-list {
+					margin-left: -250px;
+				}
+
+				.project-description {
+					margin-left: -250px;
+
+					&-top,
+					&-bottom {
+						text-align: right;
+					}
+				}
+
+				.project-links-list {
+					justify-content: flex-end;
+					margin-left: -250px;
+				}
+			}
+
+			.project-card-image {
+				order: 0;
+			}
+		}
+	}
+}

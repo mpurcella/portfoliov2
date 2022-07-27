@@ -1,0 +1,45 @@
+@import '../../design-tokens/scss-variables';
+
+.main {
+	.side-social-links,
+	.side-email {
+		display: none;
+
+		@media (min-width: 992px) {
+			display: block;
+			position: fixed;
+			bottom: 0;
+		}
+	}
+
+	.side-social-links {
+		@media (min-width: 992px) {
+			left: 40px;
+		}
+
+		@media (min-width: 1200px) {
+			left: 60px;
+		}
+	}
+
+	.side-email {
+		@media (min-width: 992px) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			right: 40px;
+
+			&::after {
+				content: '';
+				width: 1px;
+				height: 100px;
+				background-color: $color-grey;
+				margin-top: $spacer-xxl;
+			}
+		}
+
+		@media (min-width: 1200px) {
+			right: 60px;
+		}
+	}
+}

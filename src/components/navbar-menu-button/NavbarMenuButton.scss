@@ -1,0 +1,68 @@
+@import '../../design-tokens/scss-variables';
+
+.navbar-menu-button {
+	width: 30px;
+	height: 30px;
+	background-color: transparent;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: flex-end;
+	padding: 0;
+	border: none;
+	position: relative;
+	z-index: 100;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		.line {
+			background-color: $color-green;
+		}
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	@media (min-width: 768px) {
+		display: none;
+	}
+
+	.line {
+		height: 3px;
+		background-color: $color-off-white;
+	}
+
+	.line-1,
+	.line-2,
+	.line-3 {
+		transition: all 0.4s;
+	}
+
+	.line-1,
+	.line-3 {
+		width: 100%;
+	}
+
+	.line-1 {
+		&.active {
+			transform: rotateZ(-45deg) translate(-8px, 6px);
+		}
+	}
+
+	.line-2 {
+		width: 80%;
+
+		&.active {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+
+	.line-3 {
+		&.active {
+			transform: rotateZ(45deg) translate(-8px, -6px);
+		}
+	}
+}

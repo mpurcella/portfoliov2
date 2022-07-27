@@ -1,0 +1,157 @@
+@import '../../design-tokens/scss-variables';
+
+.navbar-links-list {
+	display: flex;
+
+	// Landscape on mobile
+	@media (max-width: 768px) and (max-height: 500px) {
+		flex-direction: row;
+		margin-bottom: $spacer-xxl * 2;
+	}
+
+	// Portrait on mobile
+	@media (max-width: 768px) and (min-height: 500px) {
+		flex-direction: column;
+		margin-bottom: $spacer-xxl * 4;
+	}
+
+	@media (min-width: 768px) {
+		flex-direction: row;
+		margin-bottom: 0;
+	}
+
+	.navbar-links-item {
+		display: flex;
+		counter-increment: item 1;
+
+		&::before {
+			content: '0' counter(item) '.';
+			font-family: 'Roboto Mono', monospace;
+			font-size: $size-3;
+			color: $color-green;
+			font-weight: 200;
+
+			// Landscape on Mobile
+			@media (max-width: 768px) and (max-height: 500px) {
+				margin-bottom: 0;
+				margin-right: $spacer-sm;
+			}
+
+			// Portrait on mobile
+			@media (max-width: 768px) and (min-height: 500px) {
+				margin-bottom: $spacer-sm;
+			}
+
+			@media (min-width: 768px) {
+				font-size: $size-2;
+				margin-bottom: unset;
+				margin-right: $spacer-sm;
+			}
+		}
+
+		// Landscape on mobile
+		@media (max-width: 768px) and (max-height: 500px) {
+			flex-direction: row;
+			align-items: flex-end;
+			margin: 0 $spacer-xxl * 1.5;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		// Portrait on mobile
+		@media (max-width: 768px) and (min-height: 500px) {
+			flex-direction: column;
+			align-items: center;
+			margin: $spacer-xxl * 1.5 0;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		@media (min-width: 768px) {
+			flex-direction: row;
+			align-items: flex-end;
+			margin: 0 $spacer-xxl;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	.navbar-links-link {
+		font-size: $size-7;
+		color: $color-off-white;
+		font-weight: 200;
+		text-transform: uppercase;
+		text-decoration: none;
+		position: relative;
+		transition: color 0.3s;
+
+		&.active {
+			font-weight: 600;
+
+			&:hover {
+				&::after {
+					transform: scale(0);
+				}
+			}
+
+			&:focus {
+				&::after {
+					transform: scale(0);
+				}
+			}
+		}
+
+		&:hover {
+			&::after {
+				transform: scaleX(1);
+			}
+		}
+
+		&:focus {
+			outline: none;
+
+			&::after {
+				transform: scaleX(1);
+			}
+		}
+
+		&::after {
+			content: '';
+			width: 100%;
+			height: 1px;
+			background-color: $color-dark-green;
+			position: absolute;
+			left: 0;
+			bottom: -4px;
+			transform: scaleX(0);
+			transform-origin: left;
+			transition: all 0.3s;
+		}
+
+		@media (min-width: 375px) {
+			font-size: $size-8;
+		}
+
+		@media (min-width: 768px) {
+			font-size: $size-5;
+		}
+	}
+}

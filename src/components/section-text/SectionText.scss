@@ -1,0 +1,37 @@
+@import '../../design-tokens/scss-variables';
+
+.section-text {
+	letter-spacing: 0.25px;
+	line-height: 1.5;
+}
+
+.about-text,
+.work-text,
+.contact-text {
+	font-size: $size-3;
+	font-weight: 300;
+	margin-bottom: $spacer-xxl * 3;
+
+	@media (min-width: 375px) {
+		font-size: $size-5;
+	}
+
+	@media (min-width: 992px) {
+		margin-bottom: $spacer-xxl * 5;
+	}
+}
+
+.about-text {
+	@media (min-width: 992px) {
+		width: calc(55% - $spacer-md);
+		margin-bottom: 0;
+	}
+
+	@media (min-width: 1400px) {
+		width: 60%;
+	}
+}
+
+.contact-text {
+	text-align: center;
+}

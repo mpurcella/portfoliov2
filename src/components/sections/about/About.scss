@@ -1,0 +1,149 @@
+@import '../../../design-tokens/scss-variables';
+
+#about {
+	padding: $spacer-xxl * 3 0;
+	box-sizing: border-box;
+
+	@media (min-width: 768px) {
+		padding: $spacer-xxl * 5 0;
+	}
+
+	.test {
+		background-color: red;
+	}
+
+	.about-info-container {
+		margin-bottom: $spacer-xxl * 3;
+
+		@media (min-width: 992px) {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.rose-emoji {
+			cursor: help;
+			position: relative;
+
+			&::after {
+				content: '';
+				width: 100%;
+				border-bottom: 1px dashed $color-grey;
+				position: absolute;
+				left: 0;
+				bottom: -1px;
+				z-index: -1;
+			}
+
+			&:hover {
+				.rose-emoji-tooltip {
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+
+			&-tooltip {
+				font-size: $size-2;
+				font-weight: 300;
+				color: $color-off-white;
+				background-color: $color-dark-black;
+				padding: $spacer-xs;
+				border: 1px solid $color-green;
+				border-radius: 5px;
+				box-shadow: 0 2px 4px rgba($color-dark-black, 0.3);
+				position: absolute;
+				bottom: calc(100% + 5px);
+				left: 50%;
+				transform: translateX(-50%);
+				visibility: hidden;
+				opacity: 0;
+				white-space: nowrap;
+				cursor: default;
+				transition: all 0.3s;
+
+				&::before,
+				&::after {
+					content: '';
+					border-style: solid;
+					position: absolute;
+					left: 50%;
+				}
+
+				&::before {
+					margin-left: -6px;
+					border-width: 6px;
+					border-color: $color-green transparent transparent transparent;
+					top: 100%;
+				}
+
+				&::after {
+					margin-left: -5px;
+					border-width: 5px;
+					border-color: $color-dark-black transparent transparent transparent;
+					top: calc(100% - 0.5px);
+				}
+
+				@media (min-width: 768px) {
+					font-size: $size-3;
+				}
+			}
+		}
+
+		.about-image-container {
+			display: flex;
+			justify-content: center;
+			align-self: center;
+
+			@media (min-width: 992px) {
+				width: calc(45% - $spacer-md);
+				justify-content: flex-end;
+			}
+
+			@media (min-width: 1400px) {
+				width: 40%;
+			}
+
+			.about-image {
+				max-width: 280px;
+				position: relative;
+
+				&::before,
+				&::after {
+					content: '';
+					width: 60px;
+					height: 60px;
+					border-color: $color-green;
+					border-style: solid;
+					position: absolute;
+				}
+
+				&::before {
+					top: 0;
+					left: 0;
+					border-width: 2px 0 0 2px;
+				}
+
+				&::after {
+					bottom: 0;
+					right: 0;
+					border-width: 0 2px 2px 0;
+				}
+
+				@media (min-width: 576px) {
+					max-width: 340px;
+				}
+			}
+
+			img {
+				width: 100%;
+				display: block;
+				box-sizing: border-box;
+				box-shadow: 0 3px 6px rgba($color-dark-black, 0.3);
+			}
+		}
+	}
+
+	.about-button {
+		display: flex;
+		justify-content: center;
+	}
+}

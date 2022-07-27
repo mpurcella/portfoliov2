@@ -1,0 +1,29 @@
+@import '../../design-tokens/scss-variables';
+
+.wrapper {
+	width: 100%;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 0 $spacer-xxl;
+	box-sizing: border-box;
+
+	@media (min-width: 576px) {
+		max-width: 500px;
+	}
+
+	@media (min-width: 768px) {
+		max-width: 580px;
+	}
+
+	@media (min-width: 992px) {
+		max-width: 780px;
+	}
+
+	@media (min-width: 1200px) {
+		max-width: 900px;
+	}
+
+	@media (min-width: 1400px) {
+		max-width: 1000px;
+	}
+}

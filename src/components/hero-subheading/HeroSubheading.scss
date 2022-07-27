@@ -1,0 +1,14 @@
+@import '../../design-tokens/scss-variables';
+
+.hero-subheading {
+	font-size: $size-8;
+	font-weight: 300;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	margin-bottom: $spacer-xxl * 2;
+
+	@media (min-width: 768px) {
+		font-size: $size-9;
+	}
+}

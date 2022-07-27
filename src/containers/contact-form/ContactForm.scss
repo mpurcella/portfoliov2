@@ -1,0 +1,131 @@
+@import '../../design-tokens/scss-variables';
+
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	@media (min-width: 992px) {
+		max-width: 540px;
+		margin: 0 auto;
+	}
+
+	.first-name,
+	.last-name,
+	.email-address,
+	.message {
+		width: 100%;
+		position: relative;
+
+		.label {
+			font-size: $size-1;
+			font-weight: 200;
+			letter-spacing: 0.25px;
+			background-color: $color-medium-black;
+			padding: 0 $spacer-xxs;
+			position: absolute;
+			top: -6px;
+			left: 12px;
+
+			span {
+				color: $color-green;
+				margin-left: $spacer-xxs;
+			}
+		}
+
+		.form-input,
+		.form-text-area {
+			width: 100%;
+			font-family: 'Open Sans', sans-serif;
+			font-size: $size-5;
+			color: $color-off-white;
+			font-weight: 300;
+			background-color: transparent;
+			padding: 10px 15px;
+			border: 1px solid $color-grey;
+			border-radius: 0;
+			box-sizing: border-box;
+			transition: all 0.3s;
+			outline: none;
+			caret-color: $color-off-white;
+
+			&:focus {
+				border-color: $color-green;
+			}
+		}
+
+		.input-error {
+			width: 100%;
+			font-family: 'Roboto Mono', monospace;
+			font-size: $size-1;
+			color: $color-bright-pink;
+			font-weight: 300;
+			text-align: center;
+			margin-top: $spacer-xxs;
+			display: flex;
+			justify-content: center;
+			position: absolute;
+		}
+	}
+
+	.first-name,
+	.last-name,
+	.email-address {
+		margin-bottom: $spacer-xxl * 2;
+	}
+
+	.message {
+		margin-bottom: $spacer-xxl * 3;
+	}
+
+	.button-submit {
+		font-family: 'Open Sans', sans-serif;
+		font-size: $size-5;
+		font-weight: 400;
+		color: $color-off-white;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		background-color: transparent;
+		padding: $spacer-xl $spacer-xxl * 1.5;
+		border: 1px solid $color-green;
+		border-radius: 30px;
+		cursor: pointer;
+		transition: all 0.3s;
+
+		&.disabled {
+			opacity: 0.65;
+		}
+
+		&:hover {
+			color: $color-medium-black;
+			background-color: $color-green;
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 6px $color-light-green;
+		}
+
+		.loader {
+			width: 16px;
+			height: 16px;
+			margin-right: $spacer-lg;
+			display: inline-block;
+			border-radius: 50%;
+			border-top: 3px solid $color-medium-black;
+			border-right: 3px solid transparent;
+			box-sizing: border-box;
+			animation: load 1s linear infinite;
+		}
+
+		@keyframes load {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+	}
+}
